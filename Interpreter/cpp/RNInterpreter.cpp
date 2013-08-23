@@ -20,6 +20,8 @@ class RNInterpreter{
     
 	// interpret() for client
     int interpret(char*); 
+	
+	// Internal use
     virtual void interpret(char *input, int &total){
         // for internal use
         int index;
