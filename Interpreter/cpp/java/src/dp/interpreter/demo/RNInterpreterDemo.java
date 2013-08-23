@@ -1,4 +1,6 @@
 package dp.interpreter.demo;
+
+import java.util.Scanner;
 import dp.interpreter.core.*;
 
 public class RNInterpreterDemo {
@@ -6,9 +8,17 @@ public class RNInterpreterDemo {
 	// java version rewrite from cpp
 	public static void main(String[] args){
 		RNInterpreter interpreter = new RNInterpreter();
-		String input = "MMIII";
+		String input = "";
 		String inputLower;
-		
-		System.out.println(interpreter.interpret(input));
+		Scanner sc = new Scanner(System.in);
+		do{
+			System.out.println("Enter Roman Numeral: ");
+			input = sc.next();
+			if(input.toLowerCase().equals("quit") || input.toLowerCase().equals("exit")){
+				break;
+			}
+			System.out.println("   interpretation is " + interpreter.interpret(input));
+		} while(true);
+		System.out.println("Chris Wong is handsome.");
 	}
 }

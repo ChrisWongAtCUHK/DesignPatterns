@@ -48,7 +48,7 @@ public class RNInterpreter {
 		
 		// If the input is removed entirely
 		if (input.equals("")){
-		System.out.println("Stop at hundreds.");
+			System.out.println("Stop at hundreds.");
 			return total;
 		}
 		
@@ -102,9 +102,8 @@ public class RNInterpreter {
 			}
 		}
 		
-		if(index != 0){
-			interpretPair.setInput(input.substring(index));
-		}
+
+		interpretPair.setInput(input.substring(index));
 		interpretPair.setTotal(total);
 		return interpretPair;
 	}
