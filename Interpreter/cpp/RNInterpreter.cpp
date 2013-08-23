@@ -1,5 +1,8 @@
-#include <iostream.h>
+#include <iostream>
+#include <cstring>
 #include <string.h>
+
+using namespace std;
 
 class Thousand;
 class Hundred;
@@ -48,11 +51,11 @@ class RNInterpreter
     } // remove leading chars processed
   protected:
     // cannot be pure virtual because client asks for instance
-    virtual char one(){}
-    virtual char *four(){}
-    virtual char five(){}
-    virtual char *nine(){}
-    virtual int multiplier(){}
+    virtual char one(){return '\0';}
+    virtual char *four(){return '\0';}
+    virtual char five(){return '\0';}
+    virtual char *nine(){return '\0';}
+    virtual int multiplier(){return 0;}
   private:
     RNInterpreter *thousands;
     RNInterpreter *hundreds;
@@ -192,14 +195,25 @@ int RNInterpreter::interpret(char *input)
   return total;
 }
 
-int main()
-{
+int main (int argc, char* args[]){
   RNInterpreter interpreter;
   char input[20];
-  cout << "Enter Roman Numeral: ";
-  while (cin >> input)
-  {
-    cout << "   interpretation is " << interpreter.interpret(input) << endl;
-    cout << "Enter Roman Numeral: ";
-  }
+  char input_lower[20];
+  do{
+	cout << "Enter Roman Numeral: ";
+	cin >> input;
+	for(unsigned int i = 0; i <= strlen(input); i++){
+		input_lower[i] = tolower(input[i]);
+	}
+	
+	// Exit command: "quit" or "exit" (case-insensitive)
+	if(!strncmp(input_lower, "quit", strlen(input_lower)) || !strncmp(input_lower, "exit", strlen(input_lower)) ){
+		break;
+	}
+	cout << "   interpretation is " << interpreter.interpret(input) << endl;
+  } while(1);
+  
+  cout << "Chris Wong is handsome." << endl;
+  return 0;
+ 
 }
