@@ -1,0 +1,1 @@
+package dp.adapter.execute;public class Sammi {	public void hideInHome(){		System.out.println("Sammi:hideInHome()");	}}

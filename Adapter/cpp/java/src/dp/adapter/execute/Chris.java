@@ -1,0 +1,1 @@
+package dp.adapter.execute;public class Chris {	public void goJogging(){		System.out.println("Chris:goJogging()");	}}

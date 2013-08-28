@@ -38,10 +38,10 @@ class Fea{
 	public:
 		// no hope of polymorphism
 		~Fea(){
-		cout << "Fea::dtor" << endl;
+			cout << "Fea::dtor" << endl;
 		}
 		void doThis(){
-		cout << "Fea::doThis()" << endl;
+			cout << "Fea::doThis()" << endl;
 		}
 };
 
@@ -71,9 +71,9 @@ ExecuteInterface **initialize() {
 	ExecuteInterface **array = new ExecuteInterface *[3];
 
 	/* the old is below */
-	array[0] = new ExecuteAdapter < Fea > (new Fea(), &Fea::doThis);
-	array[1] = new ExecuteAdapter < Feye > (new Feye(), &Feye::doThat);
-	array[2] = new ExecuteAdapter < Pheau > (new Pheau(), &Pheau::doTheOther);
+	array[0] = new ExecuteAdapter <Fea> (new Fea(), &Fea::doThis);
+	array[1] = new ExecuteAdapter <Feye> (new Feye(), &Feye::doThat);
+	array[2] = new ExecuteAdapter <Pheau> (new Pheau(), &Pheau::doTheOther);
 	return array;
 }
 

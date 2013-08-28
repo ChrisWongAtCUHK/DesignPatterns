@@ -1,0 +1,1 @@
+package dp.adapter.execute;public class Amby {	public void playCandyCrush(){		System.out.println("Amby:playCandyCrush()");	}}
