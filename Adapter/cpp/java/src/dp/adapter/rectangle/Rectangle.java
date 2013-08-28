@@ -1,0 +1,1 @@
+package dp.adapter.rectangle;public interface Rectangle {	public void draw();}

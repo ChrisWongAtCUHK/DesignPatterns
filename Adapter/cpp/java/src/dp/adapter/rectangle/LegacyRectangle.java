@@ -1,4 +1,4 @@
-package dp.adapter.core;
+package dp.adapter.rectangle;
 
 // Legacy component
 public class LegacyRectangle{

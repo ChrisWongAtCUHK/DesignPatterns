@@ -1,6 +1,6 @@
 package dp.adapter.demo;
 
-import dp.adapter.core.*;
+import dp.adapter.rectangle.*;
 
 public class RectangleAdapterDemo{
 

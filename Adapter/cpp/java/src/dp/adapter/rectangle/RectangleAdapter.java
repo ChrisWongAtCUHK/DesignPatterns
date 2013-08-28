@@ -1,4 +1,4 @@
-package dp.adapter.core;
+package dp.adapter.rectangle;
 
 // Adapter wrapper
 public class RectangleAdapter extends LegacyRectangle implements Rectangle{
