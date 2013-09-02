@@ -1,13 +1,21 @@
 #include <iostream>
 
 #include "Program.cpp"
-#include "Context.cpp"
+#include "CommandList.cpp"
 
 using namespace std;
 
 // Main program
 int main(int argc, char *argv[]){
-	cout << "Main program start here:" << endl;
+	if(argc < 2){
+		cout << "Usage: " << argv[0] << " filename" << endl;
+		return 1;
+	}
+	
+	Node *node;
+	node = new Program();
 	Context context("program.txt");
+	node->parse(context);
+	node->execute();
 	return 0;
 }

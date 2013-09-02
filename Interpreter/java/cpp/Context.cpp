@@ -1,3 +1,5 @@
+#pragma once
+
 #include <fstream>
 #include <iostream>
 #include <list>
@@ -12,8 +14,11 @@ class Context
 	private:
 		list<string> tokenList;
 		list<string>::iterator tokens;
-		string currentToken;
+		
+		
 	public:
+		string currentToken;
+	
 		// Constructor
 		Context(string filename){
 			
@@ -37,18 +42,40 @@ class Context
 			}
 			infile.close();
 			tokens = tokenList.begin();
-			nextToken();
+			currentToken = *tokens;
 		}
 		
 		// If tokenList has next token, return it, otherwise return empty string
 		string nextToken(){
+			currentToken = "";
 			if(tokens == tokenList.end()){
 				currentToken = "";
 			} else {
 				// Conversion the element to string
+				++tokens;
 				currentToken = *tokens;
 			}
 			return currentToken;
 		}
 	
+		// Skip token
+		void skipToken(string token){
+			if(currentToken.compare(token)){
+				// If the token is invalid, display warning message
+				cout << "Warning " << token << " is expected, but " + currentToken + " is found." << endl;
+			}
+			nextToken();
+		}
+		
+		// Convert currentToken to integer
+		int currentNumber(){
+			int i;
+			sscanf(currentToken.c_str(), "%d", &i);
+			return i;
+		}
+		
+		// Destructor
+		~Context() {
+			//cout << "I am dieing... " << endl;
+		}
 };
