@@ -10,12 +10,13 @@ using namespace std;
 class Context
 {
 	private:
+		list<string> tokenList;
 		list<string>::iterator tokens;
 		string currentToken;
 	public:
 		// Constructor
 		Context(string filename){
-			list<string> tokenList;
+			
 			ifstream infile;
 			string line;
 			string previousLine = "";
@@ -29,12 +30,25 @@ class Context
 					list<string>::iterator it;
 					for (it = strList.begin(); it != strList.end(); ++it){
 						string token = *it;
-						cout << token <<endl; // Prints out token.
+						tokenList.push_back(token);
 					}
 				}
 
 			}
 			infile.close();
+			tokens = tokenList.begin();
+			nextToken();
+		}
+		
+		// If tokenList has next token, return it, otherwise return empty string
+		string nextToken(){
+			if(tokens == tokenList.end()){
+				currentToken = "";
+			} else {
+				// Conversion the element to string
+				currentToken = *tokens;
+			}
+			return currentToken;
 		}
 	
 };
