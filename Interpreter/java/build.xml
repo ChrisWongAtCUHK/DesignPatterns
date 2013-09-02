@@ -1,47 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="Adapter">
-<property name="rectangle-project-name" value="RectangleAdapter"/>
-<property name="rectangle-main-class" value="dp.adapter.demo.RectangleAdapterDemo"/>
-<property name="execute-project-name" value="ExecuteAdapter"/>
-<property name="execute-main-class" value="dp.adapter.demo.ExecuteAdapterDemo"/>
-<property name="class-path" value="."/>
-<property name="base-dir" value="bin"/>
+	<project basedir="." default="build" name="Interpreter">
+	<property name="project-name" value="ProgramInterpreter"/>
+	<property name="main-class" value="dp.interpreter.Main"/>
+	<property name="class-path" value="."/>
+	<property name="base-dir" value="bin"/>
 
-<target name="compile">
-<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${class-path}" >
-</javac>
-</target>
+	<!-- compile the program -->
+	<target name="compile">
+		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${class-path}" >
+		</javac>
+	</target>
 
-<!-- Build all the jar files -->
-<target name="build" depends="compile" >
-<mkdir dir="deploy" />
-<jar jarfile="deploy/${rectangle-project-name}.jar" basedir="${base-dir}" includes="dp/adapter/rectangle/*.class dp/adapter/demo/RectangleAdapterDemo.class" >
-<manifest>
-<attribute name="Main-Class" value="${rectangle-main-class}" />
-</manifest>
-</jar>
-</target>
+	<!-- Build all the jar files -->
+	<target name="build" depends="compile" >
+		<mkdir dir="deploy" />
+		<jar jarfile="deploy/${project-name}.jar" basedir="${base-dir}" includes="**/**/*.class" >
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}" />
+			</manifest>
+		</jar>
+	</target>
 
-<!-- Build the jar of rectangle adapter -->
-<target name="exec" depends="compile" >
-<mkdir dir="deploy" />
-<jar jarfile="deploy/${execute-project-name}.jar" basedir="${base-dir}" includes="dp/adapter/execute/*.class dp/adapter/demo/ExecuteAdapterDemo.class" >
-<manifest>
-<attribute name="Main-Class" value="${execute-main-class}" />
-</manifest>
-</jar>
-</target>
-
-<!-- Run the jar of rectangle adapter -->
-<target name="runr">
-<java jar="deploy/${rectangle-project-name}.jar" fork="true">
-</java>
-</target>
-
-<!-- Run the jar of execute adapter -->
-<target name="rune">
-<java jar="deploy/${execute-project-name}.jar" fork="true">
-</java>
-</target>
-
+	<!-- Run the jar of program interpreter -->
+	<target name="run">
+		<java jar="deploy/${project-name}.jar" fork="true">
+			 <arg value="program.txt"/>
+		</java>
+	</target>
 </project>
