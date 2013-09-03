@@ -1,5 +1,3 @@
-#pragma once
-
 #include <fstream>
 #include <iostream>
 #include <list>
@@ -8,6 +6,9 @@
 #include "MyList.h"
 
 using namespace std;
+
+#ifndef CONTEXT_H
+#define CONTEXT_H
 
 class Context
 {
@@ -33,3 +34,4 @@ class Context
 		// Destructor
 		~Context();
 };
+#endif
