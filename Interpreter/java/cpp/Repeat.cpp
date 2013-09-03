@@ -1,11 +1,10 @@
 #include "Repeat.h"
 
-
 // Constructor
 Repeat::Repeat() {}
 
 // Override
-void Repeat::parse(Context context){
+void Repeat::parse(Context &context){
 	context.skipToken("REPEAT");
 	number = context.currentNumber();
 	context.nextToken();

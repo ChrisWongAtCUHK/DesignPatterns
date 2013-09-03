@@ -13,7 +13,7 @@ class Node {
 		Node(){};									// {} is essential for sub-class...
 		
 		// TODO: Context, destructor
-		virtual void parse(Context context) {}; 
+		virtual void parse(Context &context) {}; 
 		virtual void execute() {};
 		
 };

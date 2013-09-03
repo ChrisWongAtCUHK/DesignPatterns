@@ -15,7 +15,7 @@ class Primitive: public Node
 		Primitive();
 		
 		// Override
-		void parse(Context);
+		void parse(Context &);
 		
 		// Override
 		void execute();

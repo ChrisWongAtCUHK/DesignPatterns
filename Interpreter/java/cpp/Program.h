@@ -13,7 +13,7 @@ class Program: public Node
 		Program();
 	
 		// Override
-		void parse(Context context);
+		void parse(Context &);
 		
 		// Override
 		void execute();

@@ -4,11 +4,12 @@
 Primitive::Primitive() {}
 
 // Override
-void Primitive::parse(Context context){
+void Primitive::parse(Context &context){
 	name = context.currentToken;
+	context.skipToken(name);
 	// Input context does not match any keywords
 	if(name.compare("PRINT") && name.compare("BREAK") && name.compare("LINEBREAK") && name.compare("SPACE")) {
-		cerr << "Undefined Command" << endl;
+		cerr << "Undefined Command:" << name << endl;
 	}
 	
 	if(!name.compare("PRINT")){

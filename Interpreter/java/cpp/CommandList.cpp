@@ -4,7 +4,7 @@
 CommandList::CommandList() {}
 
 // Override
-void CommandList::parse(Context context) {
+void CommandList::parse(Context &context) {
 	while(true){
 		if(!context.currentToken.compare("")){
 			// Check if there is END terminator
@@ -16,17 +16,17 @@ void CommandList::parse(Context context) {
 		} else {
 			Node *command = new Command();
 			command->parse(context);
-			commands.push_back(*command);
+			commands.push_back(command);
 		}
 	}
 }
 
 // Override
 void CommandList::execute() {
-	list<Node>::iterator it;
+	list<Node*>::iterator it;
 	for(it = commands.begin(); it != commands.end(); ++it){
-		Node command = *it;
-		command.execute();
+		Node *command = *it;
+		command->execute();
 	}
 }
 		

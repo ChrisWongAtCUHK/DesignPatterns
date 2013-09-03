@@ -5,7 +5,7 @@
 Program::Program(){}
 
 // Override
-void Program::parse(Context context) {
+void Program::parse(Context &context) {
 	context.skipToken("PROGRAM");
 	commandList = new CommandList();
 	commandList->parse(context);

@@ -4,7 +4,7 @@
 Command::Command() {}
 
 // Override
-void Command::parse(Context context){
+void Command::parse(Context &context){
 	if(!context.currentToken.compare("REPEAT")){
 		// Parse <repeat>
 		node = new Repeat();
@@ -18,4 +18,5 @@ void Command::parse(Context context){
 
 // Override
 void Command::execute(){
+	node->execute();
 }

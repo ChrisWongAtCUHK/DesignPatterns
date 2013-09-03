@@ -10,14 +10,14 @@
 class CommandList: public Node
 {
 	private:
-		list<Node> commands;
+		list<Node*> commands;
 		
 	public:
 		// Constructor
 		CommandList();
 		
 		// Override
-		void parse(Context);
+		void parse(Context &);
 		
 		// Override
 		void execute();

@@ -16,7 +16,7 @@ class Command: public Node
 		Command();
 		
 		// Override
-		void parse(Context);
+		void parse(Context &);
 		
 		// Override
 		void execute();
