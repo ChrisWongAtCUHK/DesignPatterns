@@ -1,1 +1,6 @@
-PROGRAM
+PROGRAM 
+    PRINT dog SPACE 
+    PRINT is SPACE 
+    PRINT an SPACE 
+    PRINT animal
+END 

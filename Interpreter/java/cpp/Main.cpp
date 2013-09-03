@@ -1,7 +1,4 @@
-#include <iostream>
-
-#include "Program.cpp"
-#include "CommandList.cpp"
+#include "Program.h"
 
 using namespace std;
 

@@ -1,33 +1,17 @@
-#include <iostream>
+#include "Program.h"
 
-#include "Node.cpp"
-#include "Context.cpp"
-#include "CommandList.cpp"
 
-using namespace std;
+// Constructor
+Program::Program(){}
 
-class Program: public Node
-{
-	private:
-		Node *commandList;
+// Override
+void Program::parse(Context context) {
+	context.skipToken("PROGRAM");
+	commandList = new CommandList();
+	commandList->parse(context);
+}
 
-	public:
-		// Constructor
-		Program(){}
-	
-		// Override
-		void parse(Context context) {
-			context.skipToken("PROGRAM");
-			commandList = new CommandList();
-			commandList->parse(context);
-		};
-		
-		// Override
-		void execute() {
-			commandList->execute();
-		};
-		
-		// Destructor
-		//~Program(){ delete commandList; }
-	
-};
+// Override
+void Program::execute() {
+	commandList->execute();
+}
