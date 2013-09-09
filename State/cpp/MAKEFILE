@@ -1,0 +1,1 @@
+default:	g++ -c Main.cpp

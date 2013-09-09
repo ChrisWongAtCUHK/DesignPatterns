@@ -1,0 +1,1 @@
+#include <iostream>using namespace std;class Machine{  class State *current;  public:    Machine();    void setCurrent(State *s)    {        current = s;    }    void on();    void off();};
