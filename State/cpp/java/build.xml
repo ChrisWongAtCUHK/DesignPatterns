@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="State">
+	<property name="project-name"  value="StateMachine"/>
+	<property name="main-class"  value="dp.state.demo.StateMachineDemo"/>
+	<property name="class-path"  value="."/>
+	<property name="base-dir"  value="bin"/>
+	
+	<target name="compile">
+		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${class-path}" >
+		</javac>
+	</target>
+	
+	<target name="build" depends="compile" >
+		<mkdir dir="deploy" />
+		<jar jarfile="deploy/${project-name}.jar" basedir="${base-dir}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}" />
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- The followings are not recommended... -->
+	<!-- run the class, NOTE: fork="true" is absent for interactive i/o -->
+	<target name="run">
+		<java classpath="bin" classname="${main-class}" />
+	</target>
+	
+	<!-- run the jar, or change directory to deploy and java -jar ${project-name}.jar -->
+	<target name="runJar">
+		<java jar="deploy/${project-name}.jar" fork="true">
+		</java>
+	</target>
+</project>
