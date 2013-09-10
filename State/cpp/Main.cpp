@@ -1,11 +1,8 @@
 #include "Machine.h"
 #include "State.h"
-#include "ON.h"
 
 
-
-
-int main(){
+int main(int argc, char *argv[]){
 	void(Machine:: *ptrs[])() = {
 		// http://stackoverflow.com/questions/15756331/function-pointers-generate-invalid-use-of-non-static-member-function-error
 		&Machine::off, &Machine::on
