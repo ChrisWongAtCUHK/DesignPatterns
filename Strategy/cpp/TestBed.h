@@ -9,15 +9,15 @@
 class TestBed
 {
 	public:
-		enum StrategyType{				// strategies pool
-			Dummy, Left, Right, Center
-		};
 		TestBed();						// ctor
 		~TestBed();						// dtor
-		void setStrategy(int, int);		// set the strategy
+		bool setStrategy(int, int);		// set the strategy
 		void doIt();					// invoke stategy function
 		
 	private:
 		Strategy *strategy_;
+		enum StrategyType{				// strategies pool
+			Dummy, Left, Right, Center
+		};
 };
 #endif
