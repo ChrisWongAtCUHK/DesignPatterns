@@ -1,7 +1,10 @@
 #include "CenterStrategy.h"
 
-// Constructor inherits Strategy
+// ctor
 CenterStrategy::CenterStrategy(int width): Strategy(width){}
+
+// virtual dtor
+CenterStrategy::~CenterStrategy(){}
 
  /* virtual */
 void CenterStrategy::justify(char *line){

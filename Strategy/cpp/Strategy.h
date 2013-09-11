@@ -6,17 +6,18 @@ using namespace std;
 
 #ifndef STRATEGY_H
 #define STRATEGY_H
+// Interface
 class Strategy
 {
 	public:
-		// Constructor
-		Strategy(int);
+		Strategy(int);								// ctor
+		virtual ~Strategy();						// virtual dtor
 		void format();
 		
 	protected:
 		unsigned int width_;
 		
 	private:
-		virtual void justify(char *line) = 0;
+		virtual void justify(char *line) = 0;		// virtual function
 };
 #endif

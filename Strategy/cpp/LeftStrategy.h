@@ -2,13 +2,15 @@
 
 #ifndef LEFTSTRATEGY_H
 #define LEFTSTRATEGY_H
+// ImplementationOne
 class LeftStrategy: public Strategy
 {
 	public:
-		LeftStrategy(int);
+		LeftStrategy(int);					// ctor
+		~LeftStrategy();                    // virtual dtor
 	
 	private:
-		 /* virtual */
-		 void justify(char* );
+		/* virtual */
+		void justify(char* );
 };
 #endif

@@ -5,15 +5,17 @@
 
 #ifndef TESTBED_H
 #define TESTBED_H
+// Context
 class TestBed
 {
 	public:
-		enum StrategyType{
+		enum StrategyType{				// strategies pool
 			Dummy, Left, Right, Center
 		};
-		TestBed();
-		void setStrategy(int, int);
-		void doIt();
+		TestBed();						// ctor
+		~TestBed();						// dtor
+		void setStrategy(int, int);		// set the strategy
+		void doIt();					// invoke stategy function
 		
 	private:
 		Strategy *strategy_;

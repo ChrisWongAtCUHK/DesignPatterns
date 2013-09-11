@@ -1,7 +1,10 @@
 #include "RightStrategy.h"
 
-// Constructor inherits Strategy
+// ctor
 RightStrategy::RightStrategy(int width): Strategy(width){}
+
+// virtual dtor
+RightStrategy::~RightStrategy(){}
 
  /* virtual */
  void RightStrategy::justify(char *line){
