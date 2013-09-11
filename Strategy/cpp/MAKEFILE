@@ -1,0 +1,4 @@
+default:
+	g++ -Wall -o strategy.exe Main.cpp
+run:
+	./strategy.exe
