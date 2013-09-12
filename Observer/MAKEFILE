@@ -1,0 +1,10 @@
+CC = g++
+INCLUDE = .
+CFLAGS = -g -Wall -ansi
+run: a.exe
+	@./a.exe
+a.exe: Main.cpp
+	$(CC) $(CFLAGS) -o a.exe Main.cpp
+clean:
+	@rm a.exe
+	
