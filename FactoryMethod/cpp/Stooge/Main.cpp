@@ -6,19 +6,34 @@
 // Main program
 int main(int argc, char *argv[]){
 	vector<Stooge*> roles;
+	enum choices{GO, AMBY, CHRISWONG, MING};
 	int choice;
 
 	while (true){
 		cout << "Amby(1) ChrisWong(2) Ming(3) Go(0): ";
 		cin >> choice;
-		if (choice == 0)
+		
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore();
+			cout << "Invalid choice. Must be integer." << endl;
+		}
+		
+		if (choice == GO)
 		  break;
-		else if (choice == 1)
-		  roles.push_back(new Amby);
-		else if (choice == 2)
-		  roles.push_back(new ChrisWong);
-		else
-		  roles.push_back(new Ming);
+		switch(choice){
+			case AMBY: 
+				roles.push_back(new Amby);
+				break;
+			case CHRISWONG: 
+				roles.push_back(new ChrisWong);
+				break;
+			case MING: 
+				roles.push_back(new Ming);
+				break;
+			default:
+				break;
+		}
 	}
 	
 	for (unsigned int i = 0; i < roles.size(); i++)
