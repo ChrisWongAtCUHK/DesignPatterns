@@ -1,0 +1,1 @@
+#include "GlobalChrisWong.h"GlobalChrisWong::GlobalChrisWong(int v, string str){	age = v;	face = str;}int GlobalChrisWong::get_age(){	return age;}void GlobalChrisWong::set_age(int v){	age = v;}string GlobalChrisWong::get_face(){	return face;}void GlobalChrisWong::set_face(string str){	face = str;}
