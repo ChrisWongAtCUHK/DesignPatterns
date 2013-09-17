@@ -16,12 +16,12 @@ public class CUHKBuilder implements MazeBuilder {
 	
 	@Override
 	public void buildWall(int i, int j){				// buildPart() 2
-		maze[i][j] = '?';
+		maze[i][j] = '~';								//  "\u25a1"
 	}
 	
 	@Override
 	public void buildTreasure(int i, int j){			// buildPart() 3
-		maze[i][j] = '?';
+		maze[i][j] = '*';								// "\u2605"
 	}
 	
 	@Override
