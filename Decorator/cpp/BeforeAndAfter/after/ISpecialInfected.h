@@ -1,0 +1,1 @@
+#include <iostream>using namespace std;#ifndef ISPECIALINFECTED_H#define ISPECIALINFECTED_H// Interfaceclass ISpecialInfected {	public:		virtual ~ISpecialInfected(){};			// constructor		virtual void si_appear() = 0;			// core functionality};#endif
