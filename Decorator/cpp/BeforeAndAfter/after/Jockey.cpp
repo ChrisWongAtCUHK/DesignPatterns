@@ -1,0 +1,1 @@
+#include "Jockey.h"// constructorJockey::Jockey(ISpecialInfected *core): DSpecialInfected(core){}// destructorJockey::~Jockey(){	cout << "Jockey death" << "   ";}// virtualvoid Jockey::si_appear(){	DSpecialInfected::si_appear();	cout << "Is this thing humping me?!" << endl;}

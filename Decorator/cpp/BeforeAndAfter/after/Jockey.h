@@ -1,0 +1,1 @@
+#include "DSpecialInfected.h"#ifndef JOCKEY_H#define JOCKEY_Hclass Jockey: public DSpecialInfected{	public:		Jockey(ISpecialInfected *core);		// constructor		~Jockey();							// destructor		void si_appear();					// virtual};#endif
