@@ -1,0 +1,1 @@
+#include "Jockey.h"// virtualvoid Jockey::si_appear(){	SpecialInfected::si_appear();	jockey_appear();}// clientvoid Jockey::jockey_appear(){	cout << "Is this thing humping me?!" << endl;}

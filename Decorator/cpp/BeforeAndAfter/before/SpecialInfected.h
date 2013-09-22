@@ -1,0 +1,1 @@
+#include <iostream>using namespace std;#ifndef SPECIALINFECTED_H#define SPECIALINFECTED_Hclass SpecialInfected {	public:		virtual void si_appear();};#endif

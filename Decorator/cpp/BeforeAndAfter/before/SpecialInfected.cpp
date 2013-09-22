@@ -1,0 +1,1 @@
+#include "SpecialInfected.h"void SpecialInfected::si_appear() {			cout << "Special infected is coming..." << endl;}

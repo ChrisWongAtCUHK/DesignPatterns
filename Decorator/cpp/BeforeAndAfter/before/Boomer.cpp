@@ -1,0 +1,1 @@
+#include "Boomer.h"// virtualvoid Boomer::si_appear(){	SpecialInfected::si_appear();	boomer_appear();}// clientvoid Boomer::boomer_appear(){	cout << "Boomer, don't let it puke on you." << endl;}
