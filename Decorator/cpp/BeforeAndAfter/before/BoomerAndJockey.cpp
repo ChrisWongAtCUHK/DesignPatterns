@@ -1,0 +1,1 @@
+#include "BoomerAndJockey.h"// virtualvoid BoomerAndJockey::si_appear(){	Boomer::si_appear();	Jockey::jockey_appear();}

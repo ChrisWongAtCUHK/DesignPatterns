@@ -1,1 +1,1 @@
-#include "SpecialInfected.h"#ifndef JOCKEY_H#define JOCKEY_Hclass Jockey: public SpecialInfected{	public:		void si_appear();		// virtual		private:		void jockey_appear();	// client};#endif
+#include "SpecialInfected.h"#ifndef JOCKEY_H#define JOCKEY_Hclass Jockey: public SpecialInfected{	public:		void si_appear();		// virtual		protected:		void jockey_appear();	// client};#endif

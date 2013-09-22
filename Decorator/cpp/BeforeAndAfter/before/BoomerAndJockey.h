@@ -1,0 +1,1 @@
+#include "Boomer.h"#include "Jockey.h"#ifndef BOOMERANDJOCKEY_H#define BOOMERANDJOCKEY_Hclass BoomerAndJockey: public Boomer, public Jockey{	public:		void si_appear();		// virtual};#endif
