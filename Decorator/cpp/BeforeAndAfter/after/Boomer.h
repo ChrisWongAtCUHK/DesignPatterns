@@ -1,1 +1,1 @@
-#include "SpecialInfected.h"#ifndef BOOMER_H#define BOOMER_Hclass Boomer: public SpecialInfected{	public:		void si_appear();		// virtual		protected:		void boomer_appear();	// client};#endif
+#include "DSpecialInfected.h"#ifndef BOOMER_H#define BOOMER_Hclass Boomer: public DSpecialInfected{	public:		Boomer(ISpecialInfected *core);		// constructor		~Boomer();							// destructor		void si_appear();					// virtual};#endif

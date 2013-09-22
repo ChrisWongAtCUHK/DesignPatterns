@@ -1,1 +1,1 @@
-#include "SpecialInfected.h"SpecialInfected::~SpecialInfected(){	 cout << "Special Infected dtor." << endl;}void SpecialInfected::si_appear() {	cout << "Special infected is coming..." << endl;}
+#include "SpecialInfected.h"SpecialInfected::~SpecialInfected(){	 cout << "Special Infected death." << endl;}void SpecialInfected::si_appear() {	cout << "Special infected is coming..." << endl;}

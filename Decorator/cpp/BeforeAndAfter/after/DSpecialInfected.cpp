@@ -1,0 +1,1 @@
+#include "DSpecialInfected.h"// constructorDSpecialInfected::DSpecialInfected(ISpecialInfected *inner){	m_wrappee = inner;}// destructorDSpecialInfected::~DSpecialInfected(){	delete m_wrappee;}// virtualvoid DSpecialInfected::si_appear(){	m_wrappee->si_appear();}

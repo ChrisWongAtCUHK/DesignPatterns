@@ -1,0 +1,1 @@
+#include "ISpecialInfected.h"#ifndef DSPECIALINFECTED_H#define DSPECIALINFECTED_H// Decoratorclass DSpecialInfected: public ISpecialInfected{	public:		DSpecialInfected(ISpecialInfected *inner);	// constructor		~DSpecialInfected();							// destructor		void si_appear();					// virtual		protected:		ISpecialInfected *m_wrappee;		// optional wrapper};#endif
