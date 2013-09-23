@@ -1,0 +1,1 @@
+#include "Spitter.h"// constructorSpitter::Spitter(ISpecialInfected *core): DSpecialInfected(core){}// destructorSpitter::~Spitter(){	cout << "Spitter death" << "   ";}// virtualvoid Spitter::si_appear(){	DSpecialInfected::si_appear();	cout << "Oh great, now they're spitting shit at us!" << endl;}

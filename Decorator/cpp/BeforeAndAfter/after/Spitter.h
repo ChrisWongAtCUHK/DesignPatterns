@@ -1,0 +1,1 @@
+#include "DSpecialInfected.h"#ifndef SPITTER_H#define SPITTER_Hclass Spitter: public DSpecialInfected{	public:		Spitter(ISpecialInfected *core);		// constructor		~Spitter();							// destructor		void si_appear();					// virtual};#endif
