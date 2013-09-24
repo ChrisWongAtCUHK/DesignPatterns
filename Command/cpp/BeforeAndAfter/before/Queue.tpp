@@ -1,5 +1,3 @@
-#include "Queue.h"
-
 template <typename T> Queue<T>::Queue(){
 	m_add = m_remove = 0;
 }
