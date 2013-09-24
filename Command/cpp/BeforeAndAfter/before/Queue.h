@@ -1,9 +1,8 @@
 #include "Titan.h"
 
-int Titan::s_next = 0;
-
 #ifndef QUEUE_H
 #define QUEUE_H
+// TODO: http://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
 template <typename T> class Queue
 {
 	public:

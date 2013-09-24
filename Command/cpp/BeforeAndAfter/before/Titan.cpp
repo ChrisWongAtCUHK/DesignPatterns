@@ -8,12 +8,17 @@ Titan::Titan(){
 Titan::Type Titan::get_type(){
 	return m_type;
 }
+
 void Titan::colossus (){
 	cout << m_id << "-colossus   ";
 }
+
 void Titan::armored(){
 	cout << m_id << "-armored  ";
 }
+
 void Titan::female(){
 	cout << m_id << "-female  ";
 }
+
+int Titan::s_next = 0;

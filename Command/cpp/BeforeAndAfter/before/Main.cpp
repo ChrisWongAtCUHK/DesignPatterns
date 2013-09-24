@@ -1,6 +1,7 @@
 #include "Titan.h"
 #include "Queue.h"
 
+// Main program
 int main(int argc, char *argv[]){
 	Queue<Titan> que;
 	Titan input[6], *bad_guy;
