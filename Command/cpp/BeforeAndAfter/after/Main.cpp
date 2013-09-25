@@ -86,7 +86,9 @@ int main()
   for (int i = 0; i < 6; i++)
     que.enque(&input[i]);
 
-  for (int i = 0; i < 6; i++)
-    que.deque()->execute();
+  for (int i = 0; i < 6; i++){
+	Command *cmd = *que.deque();
+	cmd->execute();
+ }
   cout << '\n';
 }
