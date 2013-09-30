@@ -5,8 +5,6 @@ run: after.exe
 	@./after.exe
 after.exe: Main.cpp
 	$(CC) $(CFLAGS) -o after.exe Main.cpp
-Titan.o: Titan.cpp Titan.h
-	$(CC) $(CFLAGS) -c Titan.cpp
 clean:
 	@rm *.exe *.o
 	

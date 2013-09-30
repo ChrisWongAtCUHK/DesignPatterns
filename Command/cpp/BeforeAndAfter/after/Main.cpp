@@ -2,10 +2,10 @@
 
 using namespace std;
 
-class Giant
+class Titan
 {
   public:
-    Giant()
+    Titan()
     {
         m_id = s_next++;
     }
@@ -25,13 +25,13 @@ class Giant
     int m_id;
     static int s_next;
 };
-int Giant::s_next = 0;
+int Titan::s_next = 0;
 
 class Command
 {
   public:
-    typedef void(Giant:: *Action)();
-    Command(Giant *object, Action method)
+    typedef void(Titan:: *Action)();
+    Command(Titan *object, Action method)
     {
         m_object = object;
         m_method = method;
@@ -41,7 +41,7 @@ class Command
         (m_object->*m_method)();
     }
   private:
-    Giant *m_object;
+    Titan *m_object;
     Action m_method;
 };
 
@@ -52,12 +52,12 @@ template <typename T> class Queue
     {
         m_add = m_remove = 0;
     }
-    void enque(T *c)
+    void enque(T &c)
     {
         m_array[m_add] = c;
         m_add = (m_add + 1) % SIZE;
     }
-    T *deque()
+    T &deque()
     {
         int temp = m_remove;
         m_remove = (m_remove + 1) % SIZE;
@@ -68,7 +68,7 @@ template <typename T> class Queue
     {
         SIZE = 8
     };
-    T *m_array[SIZE];
+    T m_array[SIZE];
     int m_add, m_remove;
 };
 
@@ -77,18 +77,17 @@ int main()
   Queue<Command*> que;
   Command *input[] = 
   {
-    new Command(new Giant, &Giant::fee), new Command(new Giant, &Giant::phi),
-      new Command(new Giant, &Giant::pheaux), new Command(new Giant, &Giant
-      ::fee), new Command(new Giant, &Giant::phi), new Command(new Giant,
-      &Giant::pheaux)
+    new Command(new Titan, &Titan::fee), new Command(new Titan, &Titan::phi),
+      new Command(new Titan, &Titan::pheaux), new Command(new Titan, &Titan
+      ::fee), new Command(new Titan, &Titan::phi), new Command(new Titan,
+      &Titan::pheaux)
   };
 
   for (int i = 0; i < 6; i++)
-    que.enque(&input[i]);
+    que.enque(input[i]);
 
   for (int i = 0; i < 6; i++){
-	Command *cmd = *que.deque();
-	cmd->execute();
+	que.deque()->execute();
  }
   cout << '\n';
 }
