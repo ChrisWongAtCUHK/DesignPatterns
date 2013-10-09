@@ -1,1 +1,0 @@
-package dp.state.trafficLight;public class Green extends Light {	public void change(TrafficLight light){		System.out.println("Green light");		sleep(5000);		light.set(new Yellow());				// If considering the flexible adjustment of state, the state setting is not necessary fixed	}}

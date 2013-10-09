@@ -1,8 +1,0 @@
-default:
-	g++ -o interpreter.exe Main.cpp MyList.cpp Context.cpp Node.h Program.cpp CommandList.cpp Command.cpp Repeat.cpp Primitive.cpp
-run:
-	./interpreter.exe program.txt
-	
-clean:
-	rm ./interpreter.exe
-	

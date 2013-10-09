@@ -1,1 +1,0 @@
-package dp.memento.backup;import java.util.*;public class Recovery {	private List<Backup> backups = new ArrayList<Backup>();		void add(Backup backup){		backups.add(backup);	}		Backup retrieve(Date date){		for(Backup backup: backups){			if(backup.getDate().equals(date)){				backups.remove(backup);				return backup;			}		}				// date not found		return null;	}}
