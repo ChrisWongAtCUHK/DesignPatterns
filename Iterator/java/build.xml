@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<project basedir="." default="build" name="Iterator">
+	<property name="project-name" value="IterableString"/>
+	<property name="main-class" value="dp.iterator.Main"/>
+	<property name="class-path" value="."/>
+	<property name="base-dir" value="bin"/>
+
+	<!-- compile the program -->
+	<target name="compile">
+		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${class-path}" >
+		</javac>
+	</target>
+
+	<!-- Build all the jar files -->
+	<target name="build" depends="compile" >
+		<mkdir dir="deploy" />
+		<jar jarfile="deploy/${project-name}.jar" basedir="${base-dir}" includes="**/**/*.class" >
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- Run the jar of program interpreter -->
+	<target name="run">
+		<java jar="deploy/${project-name}.jar" fork="true">
+		</java>
+	</target>
+</project>

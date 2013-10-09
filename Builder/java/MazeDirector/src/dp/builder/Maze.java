@@ -1,0 +1,1 @@
+package dp.builder;public interface Maze {	public void paint();}

@@ -1,0 +1,1 @@
+package dp.state.trafficLight;public class Main{	// http://openhome.cc/Gossip/DesignPattern/StatePattern.htm	public static void main(String args[]){		TrafficLight trafficLight = new TrafficLight();		while(true){			trafficLight.change();		}	}}

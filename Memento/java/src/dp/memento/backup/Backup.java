@@ -1,0 +1,1 @@
+package dp.memento.backup;import java.util.*;// Mementopublic class Backup{	private final String state;	private final Date date;		public Backup(String state){		this.state = state;		this.date = new Date();	}		public String getState(){		return this.state;	}		public Date getDate(){		return this.date;	}}
