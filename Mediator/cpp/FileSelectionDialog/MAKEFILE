@@ -1,0 +1,10 @@
+CC = g++
+INCLUDE = .
+CFLAGS = -g -Wall -ansi
+run: mediator.exe
+	@./mediator.exe
+mediator.exe: Main.cpp
+	$(CC) $(CFLAGS) -o mediator.exe Main.cpp
+clean:
+	@rm *.exe *.o
+	
