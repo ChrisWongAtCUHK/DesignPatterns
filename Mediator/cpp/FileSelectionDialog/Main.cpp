@@ -1,54 +1,6 @@
-#include <iostream>
-#include <string.h>
-
-using namespace std;
-
-class FileSelectionDialog;
-
-class Widget
-{
-	public:
-		Widget(FileSelectionDialog *mediator, const char *name)
-		{
-			_mediator = mediator;
-			strcpy(_name, name);
-		}
-		virtual void changed();
-		virtual void updateWidget() = 0;
-		virtual void queryWidget() = 0;
-	protected:
-		char _name[20];
-	private:
-		FileSelectionDialog *_mediator;
-};
-
-class List: public Widget
-{
-	public:
-		List(FileSelectionDialog *dir, const char *name): Widget(dir, name){}
-		void queryWidget()
-		{
-			cout << "   " << _name << " list queried" << endl;
-		}
-		void updateWidget()
-		{
-			cout << "   " << _name << " list updated" << endl;
-		}
-};
-
-class Edit: public Widget
-{
-	public:
-		Edit(FileSelectionDialog *dir, const char *name): Widget(dir, name){}
-		void queryWidget()
-		{
-			cout << "   " << _name << " edit queried" << endl;
-		}
-		void updateWidget()
-		{
-			cout << "   " << _name << " edit updated" << endl;
-		}
-};
+#include "Widget.h"
+#include "List.h"
+#include "Edit.h"
 
 class FileSelectionDialog
 {
@@ -111,8 +63,7 @@ void Widget::changed()
 	_mediator->widgetChanged(this);
 }
 
-int main()
-{
+int main(int argc, char *argv[]){
 	FileSelectionDialog fileDialog;
 	int i;
 
@@ -125,4 +76,5 @@ int main()
 		cout << "Exit[0], Filter[1], Dir[2], File[3], Selection[4]: ";
 		cin >> i;
 	}
+	return 0;
 }

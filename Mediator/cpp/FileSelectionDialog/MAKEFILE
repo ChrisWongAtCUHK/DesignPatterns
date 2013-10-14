@@ -3,8 +3,14 @@ INCLUDE = .
 CFLAGS = -g -Wall -ansi
 run: mediator.exe
 	@./mediator.exe
-mediator.exe: Main.cpp
-	$(CC) $(CFLAGS) -o mediator.exe Main.cpp
+mediator.exe: Main.cpp Widget.o List.o Edit.o
+	$(CC) $(CFLAGS) -o mediator.exe Main.cpp Widget.o List.o Edit.o
+List.o: List.cpp List.h Widget.h
+	$(CC) $(CFLAGS) -c List.cpp
+Edit.o: Edit.cpp Edit.h Widget.h
+	$(CC) $(CFLAGS) -c Edit.cpp
+Widget.o: Widget.cpp Widget.h
+	$(CC) $(CFLAGS) -c Widget.cpp
 clean:
 	@rm *.exe *.o
 	
