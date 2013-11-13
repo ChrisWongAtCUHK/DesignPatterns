@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="run" name="HelloWorldAnonymousClasses">
 	<property name="project-name"	value="InstanceofDemo"/>
-	<property name="main-class"		value="Main"/>
+	<property name="main-class"		value="demo.Main"/>
 	<property name="class-path"		value="."/>
 	<property name="base-dir"		value="bin"/>
 	<property name="javadoc-dir"	value="doc"/>
@@ -22,6 +22,14 @@
 	<!-- Run the test -->
 	<target name="run" depends="compile">
 		<java classname="${main-class}" classpath="${base-dir}" fork="true">
+		</java>
+	</target>
+	
+	<!-- Run the test with -D -->
+	<target name="runi" depends="compile">
+		<java classname="${main-class}" classpath="${base-dir}" fork="true">
+			<!-- as -Ddemotype="useinstanceof" -->
+			<sysproperty key="demotype" value="useinstanceof" />
 		</java>
 	</target>
 	

@@ -1,9 +1,5 @@
 package demo;
 
-import useinstanceof.Customer;
-import useinstanceof.Member;
-import useinstanceof.Service;
-import useinstanceof.VIP;
 /**
  * Main
  * Test program for the visitor pattern & using instanceof keyword.
@@ -11,7 +7,12 @@ import useinstanceof.VIP;
  */
 public class Main {
     public static void main(String[] args) {
-        Service service = new Service();
-        service.doService(new Member());
+      
+		if (System.getProperty("demotype") != null && System.getProperty("demotype").equalsIgnoreCase("useinstanceof")){
+		    useinstanceof.Service service = new useinstanceof.Service();
+			service.doService(new useinstanceof.Member());
+		} else if (System.getProperty("demotype") != null && System.getProperty("demotype").equalsIgnoreCase("visitor")){
+			// TODO: visitor
+		}		
     }
 }
