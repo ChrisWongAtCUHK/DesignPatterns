@@ -6,7 +6,7 @@ package useinstanceof;
  * @see Customer
  */
 public class Member extends Customer {
-    public void doMember() {
-        System.out.println("Member service");
-    }
+	public void doMember() {
+		System.out.println("Member service");
+	}
 }

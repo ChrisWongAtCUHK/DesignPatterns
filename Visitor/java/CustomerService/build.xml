@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="run" name="HelloWorldAnonymousClasses">
-	<property name="project-name"	value="InstanceofDemo"/>
-	<property name="main-class"		value="demo.Main"/>
-	<property name="class-path"		value="."/>
-	<property name="base-dir"		value="bin"/>
-	<property name="javadoc-dir"	value="doc"/>
+<project basedir="." default="help" name="HelloWorldAnonymousClasses">
+	<property name="project-name"			value="InstanceofDemo"/>
+	<property name="instanceof-main-class"	value="demo.Main"/>
+	<property name="visitor-main-class"		value="demo.Main"/>
+	<property name="class-path"				value="."/>
+	<property name="base-dir"				value="bin"/>
+	<property name="javadoc-dir"			value="doc"/>
 	
 	<!-- Prepare necessary directories & files-->
 	<target name="prepare">
@@ -19,17 +20,17 @@
 		</javac>
 	</target>
 	
-	<!-- Run the test -->
-	<target name="run" depends="compile">
-		<java classname="${main-class}" classpath="${base-dir}" fork="true">
+	<!-- Run the test with -Ddemotype="useinstanceof" -->
+	<target name="runi" depends="compile">
+		<java classname="${instanceof-main-class}" classpath="${base-dir}" fork="true">
+			<sysproperty key="demotype" value="useinstanceof" />
 		</java>
 	</target>
 	
-	<!-- Run the test with -D -->
-	<target name="runi" depends="compile">
-		<java classname="${main-class}" classpath="${base-dir}" fork="true">
-			<!-- as -Ddemotype="useinstanceof" -->
-			<sysproperty key="demotype" value="useinstanceof" />
+	<!-- Run the test with -Ddemotype="visitor" -->
+	<target name="runv" depends="compile">
+		<java classname="${visitor-main-class}" classpath="${base-dir}" fork="true">
+			<sysproperty key="demotype" value="visitor" />
 		</java>
 	</target>
 	
@@ -47,5 +48,17 @@
 				<include name="**/*.java"/>
 			</fileset>
 		</javadoc>
+	</target>
+	
+	<!-- Help menu -->
+	<target name="help" depends="compile">
+		<echo>
+			ant runi: Run the test as 
+			java -Ddemotype="useinstanceof" -cp bin demo.Main
+		</echo>
+		<echo>
+			ant runv: Run the test as 
+			java -Ddemotype="visitor" -cp bin demo.Main
+		</echo>		
 	</target>
 </project>
