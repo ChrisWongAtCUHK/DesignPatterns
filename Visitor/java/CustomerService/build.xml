@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="help" name="HelloWorldAnonymousClasses">
 	<property name="project-name"			value="InstanceofDemo"/>
-	<property name="instanceof-main-class"	value="demo.Main"/>
-	<property name="visitor-main-class"		value="demo.Main"/>
+	<property name="main-class"	value="demo.Main"/>
 	<property name="class-path"				value="."/>
 	<property name="base-dir"				value="bin"/>
 	<property name="javadoc-dir"			value="doc"/>
@@ -22,14 +21,14 @@
 	
 	<!-- Run the test with -Ddemotype="useinstanceof" -->
 	<target name="runi" depends="compile">
-		<java classname="${instanceof-main-class}" classpath="${base-dir}" fork="true">
+		<java classname="${main-class}" classpath="${base-dir}" fork="true">
 			<sysproperty key="demotype" value="useinstanceof" />
 		</java>
 	</target>
 	
 	<!-- Run the test with -Ddemotype="visitor" -->
 	<target name="runv" depends="compile">
-		<java classname="${visitor-main-class}" classpath="${base-dir}" fork="true">
+		<java classname="${main-class}" classpath="${base-dir}" fork="true">
 			<sysproperty key="demotype" value="visitor" />
 		</java>
 	</target>
