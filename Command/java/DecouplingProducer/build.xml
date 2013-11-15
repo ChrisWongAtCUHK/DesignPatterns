@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="run" name="CommandQueue">
+        <property name="project-name"	value="CommandQueue"/>
+        <property name="main-class"		value="CommandQueue"/>
+        <property name="class-path"		value="."/>
+        <property name="base-dir"		value="bin"/>
+        <property name="javadoc-dir"	value="doc"/>
+        
+        <!-- Prepare necessary directories & files-->
+        <target name="prepare">
+                <mkdir dir="src" />
+                <mkdir dir="bin" />
+                <mkdir dir="doc" />
+                <mkdir dir="ref" />
+        </target>
+        
+        <target name="compile" depends="prepare">
+                <javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${class-path}" >
+                </javac>
+        </target>
+        
+        <!-- Run the test with -Ddemotype="useinstanceof" -->
+        <target name="run" depends="compile">
+                <java classname="${main-class}" classpath="${base-dir}" fork="true">
+                        <sysproperty key="demotype" value="useinstanceof" />
+                </java>
+        </target>
+        
+        <!-- Clean up -->
+        <target name="clean" depends="prepare">
+                <delete>
+                        <fileset dir="bin"/>
+                </delete>
+        </target>
+        
+        <!-- Generate java document -->
+        <target name="doc" depends="prepare">
+                <javadoc destdir="doc">
+                        <fileset dir="src" casesensitive="yes">
+                                <include name="**/*.java"/>
+                        </fileset>
+                </javadoc>
+        </target>
+        
+        <!-- Help menu -->
+        <target name="help" depends="compile">
+                <echo>
+                        ant run: Run the test as 
+                        java -cp bin CommandQueue
+                </echo>            
+        </target>
+</project>
