@@ -1,1 +1,1 @@
-package dp.adapter.execute;public class Amby {	public void playCandyCrush(){		System.out.println("Amby:playCandyCrush()");	}}
+package dp.adapter.execute;public class Amby {	public void playPAD(){		System.out.println("Amby plays PAD with many gods.");	}}
