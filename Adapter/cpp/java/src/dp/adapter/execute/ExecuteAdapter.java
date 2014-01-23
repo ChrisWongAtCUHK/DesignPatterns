@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class ExecuteAdapter implements ExecuteInterface {
+public class ExecuteAdapter implements ExecuteInterface{
 
 	private String classname;
 	private String methodname;
@@ -24,7 +24,7 @@ public class ExecuteAdapter implements ExecuteInterface {
 			// Cast the non-specific object to specific object
 			Object obj = constructor.newInstance();
 			
-			// Create method with method name and parameters, for simply demonsttration, no parameters is used
+			// Create method with method name and parameters, for simple demonstration, no parameters is used
 			Method method = c.getMethod(this.methodname);
 			method.invoke(obj);
 			
