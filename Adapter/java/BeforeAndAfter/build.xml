@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="help" name="AdapterBeforeAndAfterDemo">
+	<property environment="env"/>
+	
+	<!-- Set up the properties -->
+	<target name="setProperties" description="set up properties">
+		<property name="before-project-name"  		value="AdapterBeforeDemo"/>
+		<property name="after-project-name"  		value="AdapterAfterDemo"/>
+		<property name="before-main-class"  		value="dp.adapter.before.AdapterDemo"/>
+		<property name="after-main-class"  			value="dp.adapter.after.AdapterDemo"/>
+		<property name="class-path"  				value="."/>
+		<property name="base-dir"  					value="bin"/>
+		<property name="base-dir"           		value="bin"/>
+		<property name="deploy-dir"          	 	value="deploy"/>
+		<property name="javadoc-dir"       			value="doc"/>
+		<property name="lib-dir"	       			value="lib"/>
+		<property name="ref-dir"       				value="ref"/>
+		<property name="src-dir"       				value="src"/>
+	</target>
+	
+	<!-- Necessary checking -->
+	<target name="check" unless="env.JAVA_HOME" depends="setProperties">
+		<fail message="JAVA_HOME must be set!"/>
+	</target>
+	
+	<!-- Clean up the project -->
+    <target name="clean" depends="setProperties">
+        <delete>
+    		<fileset dir="${base-dir}" includes="**/*.class"/>
+    	</delete>
+    	<delete>
+			<fileset dir="${deploy-dir}" includes="**/*.jar"/>
+		</delete>
+    	<delete>
+			<fileset dir="${javadoc-dir}" includes="**/*.*"/>
+		</delete>
+    </target>
+	
+    <!-- Generate java document -->
+    <target name="doc" depends="check">
+        <javadoc destdir="${javadoc-dir}">
+            <fileset dir="${src-dir}" casesensitive="yes">
+            	<include name="**/*.java"/>
+            </fileset>
+        </javadoc>
+    </target>
+
+	<!-- Create necessary directory -->
+    <target name="prepare" depends="setProperties"> 
+        <mkdir dir="${base-dir}"/>
+    	<mkdir dir="${deploy-dir}"/>
+    	<mkdir dir="${javadoc-dir}"/>
+    	<mkdir dir="${lib-dir}"/>
+    	<mkdir dir="${ref-dir}"/>
+    </target>
+
+	<target name="compile" depends="prepare">
+		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${class-path}" >
+		</javac>
+	</target>
+	
+	<!-- Build all the jar files -->
+	<target name="buildb" depends="compile" >
+		<mkdir dir="deploy" />
+		<jar jarfile="deploy/${before-project-name}.jar" basedir="${base-dir}" includes="dp/adapter/before/*.class" >
+			<manifest>
+				<attribute name="Main-Class" value="${before-main-class}" />
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- Build the jar of rectangle adapter -->
+	<target name="builda" depends="compile" >
+		<mkdir dir="deploy" />
+		<jar jarfile="deploy/${after-project-name}.jar" basedir="${base-dir}" includes="dp/adapter/after/*.class" >
+			<manifest>
+				<attribute name="Main-Class" value="${sgyrt-main-class}" />
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- Run the jar of rectangle adapter -->
+	<target name="runb" depends="buildb">
+		<java jar="deploy/${before-project-name}.jar" fork="true">
+		</java>
+	</target>
+	
+	<!-- Run the jar of execute adapter -->
+	<target name="runa" depends="builda">
+		<java jar="deploy/${after-project-name}.jar" fork="true">
+		</java>
+	</target>
+
+	<target name="help">
+		<echo>ant runb</echo>
+		<echo>ant runa</echo>
+	</target>
+</project>
