@@ -9,7 +9,7 @@ public class ExecuteAdapterDemo{
 	
 		ExecuteInterface[] array = new ExecuteInterface[4];
 		array[0] = new ExecuteAdapter(EXEC_PACKAGE + "Chris", "goJogging");
-		array[1] = new ExecuteAdapter(EXEC_PACKAGE + "Amby", "playCandyCrush");
+		array[1] = new ExecuteAdapter(EXEC_PACKAGE + "Amby", "playPAD");
 		array[2] = new ExecuteAdapter(EXEC_PACKAGE + "Sammi", "hideInHome");
 		array[3] = new ExecuteAdapter(EXEC_PACKAGE + "Hijack", "playDrum");
 		return array;
