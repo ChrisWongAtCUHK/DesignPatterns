@@ -74,7 +74,7 @@
 		<mkdir dir="deploy" />
 		<jar jarfile="deploy/${after-project-name}.jar" basedir="${base-dir}" includes="dp/adapter/after/*.class" >
 			<manifest>
-				<attribute name="Main-Class" value="${sgyrt-main-class}" />
+				<attribute name="Main-Class" value="${after-main-class}" />
 			</manifest>
 		</jar>
 	</target>
