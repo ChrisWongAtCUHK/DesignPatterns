@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<project basedir="." default="build" name="Builder">
+	<property name="project-name" value="ImageService"/>
+	<property name="main-class" value="origin.Main"/>
+	<property name="command-main-class" value="dp.command.Main"/>
+	<property name="class-path" value="."/>
+	<property name="base-dir" value="bin"/>
+	<property name="src-dir" value="src"/>
+
+	<target name="prepare">
+		<mkdir dir="${base-dir}" />
+	</target>
+	<!-- compile the program -->
+	<target name="compile" depends="prepare">
+		<javac includeantruntime="false" srcdir="${src-dir}" destdir="${base-dir}" classpath="${class-path}" >
+		</javac>
+	</target>
+
+	<!-- Build all the jar files -->
+	<target name="build" depends="compile" >
+		<mkdir dir="deploy" />
+		<jar jarfile="deploy/${project-name}.jar" basedir="${base-dir}" includes="**/**/*.class" >
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- Run the jar of program interpreter -->
+	<target name="run" depends="compile">
+		<java classname="${main-class}" classpath="${base-dir}">
+		</java>
+		<java classname="${command-main-class}" classpath="${base-dir}">
+		</java>
+	</target>
+</project>
